@@ -1,157 +1,231 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /* Modern color palette */
+  --primary-color: #2d5fff;
+  --primary-hover: #1e4aeb;
+  --text-primary: #9fa0a0;
+  --text-secondary: #474f5c;
+  --background-light: #ffffff;
+  --background-dark: #1a1f2e;
+  --surface-light: #f8f9fa;
+  --surface-dark: #242935;
+  --border-color: #e2e8f0;
+  --error-color: #ef4444;
+  --success-color: #10b981;
+
+  /* Typography */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
 
+  /* System appearance */
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-primary);
+  background-color: var(--background-light);
 
+  /* Font rendering */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Modern link styles */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #535bf2;
+  color: var(--primary-hover);
 }
 
+/* Refined container styles */
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--surface-light);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Enhanced loader animation */
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--primary-color);
+  border-right-color: var(--primary-color);
+  animation: loader-spin 0.8s linear infinite;
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Refined body layout */
 body {
   margin: 0;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  background-color: var(--background-light);
+  color: var(--text-primary);
 }
 
+/* Typography refinements */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
 }
 
+/* Enhanced button styles */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--primary-color);
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.2s ease;
 }
 
 button:hover {
-  border-color: #646cff;
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(45, 95, 255, 0.3);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/* Form container */
+/* Elegant form styling */
 form {
-  background-color: #929292;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  background-color: var(--surface-light);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  padding: 2.5rem;
   max-width: 500px;
   width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
+  margin: 2rem auto;
+  transition: transform 0.2s ease;
+}
+
+form:hover {
+  transform: translateY(-2px);
 }
 
 .app-container {
   display: flex;
+
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  margin-right: 10px;
+  background-color: var(--background-light);
 }
 
-/* Heading style */
+/* Refined form elements */
 form h2 {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  color: #333;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
-/* Label style */
 label {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
   display: block;
+  font-weight: 500;
 }
 
-/* Input and select field styles */
+/* Enhanced input styles */
 input[type="time"],
 input[type="date"],
 input[type="text"],
 select {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
   box-sizing: border-box;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: var(--background-light);
+  color: var(--text-primary);
 }
 
-/* Hover effect on inputs */
 input[type="time"]:hover,
 input[type="date"]:hover,
 input[type="text"]:hover,
 select:hover {
-  border-color: #3b7ddd;
+  border-color: var(--primary-color);
 }
 
-/* Focus effect on inputs */
 input[type="time"]:focus,
 input[type="date"]:focus,
 input[type="text"]:focus,
 select:focus {
-  border-color: #3b7ddd;
+  border-color: var(--primary-color);
   outline: none;
+  box-shadow: 0 0 0 3px rgba(45, 95, 255, 0.1);
 }
 
-
-/* Spacing between elements */
-br {
-  margin-bottom: 12px;
-}
-
-/* Add some padding between form fields */
-form label+input,
-form label+select {
-  margin-top: 10px;
-}
-
-/* Error handling */
+/* Refined error styles */
 .error {
-  color: #d9534f;
+  color: var(--error-color);
   font-size: 0.875rem;
-  margin-top: 5px;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Dark mode refinements */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: var(--background-dark);
+  }
+
+  form {
+    background-color: var(--surface-dark);
+  }
+
+  input[type="time"],
+  input[type="date"],
+  input[type="text"],
+  select {
+    background-color: var(--surface-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  label {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .chart-container {
+    background-color: var(--surface-dark);
+  }
 }
